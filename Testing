@@ -1,0 +1,164 @@
+from Python_code import *
+#Testing
+
+#__str__ function has been used to print
+
+# Create Person objects
+person1 = Person("Hazza", "Aldarmaki", "123456789", "ID001", "Hazza@example.com", "123 Main St")
+person2 = Person("Arthur", "Morgan", "987654321", "ID002", "Arthur@example.com", "456 Elm St")
+person3 = Person("John", "Marston", "555444333", "ID003", "John@example.com", "789 Oak St")
+
+# Using Person methods
+person1.create_user()
+person1.set_address("321 Updated St")  # Update address
+print(f"person1: {person1}")  # Print person1 details
+
+person2.delete_user()  # Delete person2
+print(f"person2: {person2}")  # Print person2 details
+
+person3.set_phone_number("444444444")  # Update phone number
+print(f"person3: {person3}")  # Print person3 details
+
+# Create Customer objects
+customer1 = Customer("Tom", "Brown", "111222333", "ID004", "tom@example.com", "135 Pine St", True, "LID001", "MID001", "tommyB", "password123")
+customer2 = Customer("Sara", "Wilson", "333222111", "ID005", "sara@example.com", "246 Maple St", False, "LID002", "MID002", "saraW", "password456")
+customer3 = Customer("Mike", "Davis", "444555666", "ID006", "mike@example.com", "357 Birch St", True, "LID003", "MID003", "mikeD", "password789")
+
+# Using Customer methods
+customer1.update_customer_info()  # Update customer info
+customer1.set_username("alice_new123")  # Update username
+print(f"customer1: {customer1}")  # Print customer1 details
+
+customer2.set_loyalty_member(True)  # Update loyalty member status
+print(f"customer2: {customer2}")  # Print customer2 details
+
+customer3.set_password("newsecurepwd")  # Update password
+print(f"customer3: {customer3}")  # Print customer3 details
+
+# Create EBookAuthor objects
+author1 = EBookAuthor("Emily", "Clark", "111222333", "ID007", "emily@example.com", "123 Pine St", "Emily's Author Name", "Author bio", "www.emilyauthor.com", ["Book A", "Book B"])
+author2 = EBookAuthor("Oliver", "Queen", "222111444", "ID008", "oliver@example.com", "234 Elm St", "Oliver's Author Name", "Famous author bio", "www.oliverqueen.com", ["Book C"])
+author3 = EBookAuthor("Robert", "Lang", "333444555", "ID009", "robert@example.com", "345 Maple St", "Robert's Author Name", "New author bio", "www.robertlang.com", ["Book D", "Book E"])
+
+# Using EBookAuthor methods
+author1.update_ebook_collection()  # Update eBook collection
+author1.set_books_written(["Book1 Updated", "Book2 Updated"])  # Update written books list
+print(f"author1: {author1}")  # Print author1 details
+
+author2.set_bio("Now writes comedies")  # Update bio
+print(f"author2: {author2}")  # Print author2 details
+
+author3.set_website("newoliverqueen.com")  # Update website
+print(f"author3: {author3}")  # Print author3 details
+
+# Create ShoppingCart objects
+cart1 = ShoppingCart("CART001", ["Item1", "Item2"], 2, 100.0, "CID001", "2024-11-07")
+cart2 = ShoppingCart("CART002", ["Item3"], 1, 50.0, "CID002", "2024-11-07")
+cart3 = ShoppingCart("CART003", [], 0, 0.0, "CID003", "2024-11-07")
+
+# Using ShoppingCart methods
+cart1.add_item("Item3")  # Add item to cart
+cart1.set_subtotal(250.0)  # Update subtotal
+print(f"cart1: {cart1}")  # Print cart1 details
+
+cart2.remove_item("Item3")  # Remove item from cart
+print(f"cart2: {cart2}")  # Print cart2 details
+
+cart3.set_total_items(4)  # Update total items
+print(f"cart3: {cart3}")  # Print cart3 details
+
+# Create Invoice objects
+invoice1 = Invoice("INV001", "ORDER001", "2024-11-01", "Item1: $50, Item2: $100", 150.0, 150.0)
+invoice2 = Invoice("INV002", "ORDER002", "2024-11-02", "Item3: $50", 50.0, 50.0)
+invoice3 = Invoice("INV003", "ORDER003", "2024-11-03", "Item4: $90", 90.0, 90.0)
+
+# Using Invoice methods
+invoice1.report_invoice()  # Report invoice
+invoice1.set_final_amount(170.0)  # Update final amount
+print(f"invoice1: {invoice1}")  # Print invoice1 details
+
+invoice2.calculate_total_amount()  # Calculate total amount
+print(f"invoice2: {invoice2}")  # Print invoice2 details
+
+invoice3.set_itemized_details("Item4: $90, Item5: $90, Item6: $90")  # Update itemized details
+print(f"invoice3: {invoice3}")  # Print invoice3 details
+
+# Create Order objects
+order1 = Order("ORDER001", "2024-11-01", "CID001", ["Book A"], 150.0, "Completed", ["Loyalty Discount"], ["Book A: $50", "Book B: $100"])
+order2 = Order("ORDER002", "2024-11-02", "CID002", ["Book C"], 50.0, "Pending", [], ["Book C: $50"])
+order3 = Order("ORDER003", "2024-11-03", "CID003", ["Book D"], 90.0, "Canceled", [], ["Book D: $90"])
+
+# Using Order methods
+order1.create_order()  # Create order
+order1.cancel_order()  # Cancel order
+print(f"order1: {order1}")  # Print order1 details
+
+order2.set_status("Completed")  # Update order status
+print(f"order2: {order2}")  # Print order2 details
+
+order3.set_customer_id("CID004")  # Update customer ID
+print(f"order3: {order3}")  # Print order3 details
+
+# Create EBook objects
+ebook1 = EBook("Red Dead Redemption Lore", "Jim Milton", "2005-09-01", "Fiction", 10.99, "1234567890123")
+ebook2 = EBook("Resident Evil Lore", "Leon S. Kennedy", "1999-02-04", "Fiction", 10.99, "1234567890124")
+ebook3 = EBook("Uncharted Lore", "Nathan Drake", "2000-03-15", "Fiction", 10.99, "1234567890125")
+
+# Using EBook methods
+ebook1.add_ebook()  # Add eBook
+ebook1.set_price(11.99)  # Update price
+print(f"ebook1: {ebook1}")  # Print ebook1 details
+
+ebook2.remove_ebook()  # Remove eBook
+print(f"ebook2: {ebook2}")  # Print ebook2 details
+
+ebook3.set_author("Harper Lee (Updated)")  # Update author
+print(f"ebook3: {ebook3}")  # Print ebook3 details
+
+# Create EBookStore objects
+store1 = EBookStore("Bookstore One", "123 Market St", "123-456-7890", "info@bookstoreone.com", ["Book A", "Book B"], 1000.0)
+store2 = EBookStore("Bookstore Two", "456 Commerce St", "987-654-3210", "info@bookstoretwo.com", ["Book C"], 500.0)
+store3 = EBookStore("Bookstore Three", "789 Trade St", "555-555-5555", "info@bookstorethree.com", ["Book D", "Book E"], 2000.0)
+
+# Using EBookStore methods
+store1.recommend_ebooks()  # Recommend eBooks
+store1.set_total_sales(1500.0)  # Update total sales
+print(f"store1: {store1}")  # Print store1 details
+
+store2.adjust_language()  # Adjust language settings
+print(f"store2: {store2}")  # Print store2 details
+
+store3.set_location("New Location")  # Update location
+print(f"store3: {store3}")  # Print store3 details
+
+# Create Price objects
+price1 = Price(10.99, 2.00, 0.05, 9.99, "USD", "2024-11-01")
+price2 = Price(8.99, 1.00, 0.05, 7.99, "USD", "2024-11-02")
+price3 = Price(12.99, 2.00, 0.05, 11.99, "USD", "2024-11-03")
+
+# Using Price methods
+price1.calculate_base_price()  # Calculate base price
+price1.set_currency("EUR")  # Update currency
+print(f"price1: {price1}")  # Print price1 details
+
+price2.update_final_price()  # Update final price
+print(f"price2: {price2}")  # Print price2 details
+
+price3.set_pricing_date("2024-11-04")  # Update pricing date
+print(f"price3: {price3}")  # Print price3 details
+
+# Create Discount objects
+discount1 = Discount("D001", 0.10, 0.05, "10% off", 2, "2024-12-31")
+discount2 = Discount("D002", 0.15, 0.10, "15% off on bulk", 3, "2024-12-31")
+discount3 = Discount("D003", 0.05, 0.00, "5% loyalty discount", 1, "2024-12-31")
+
+# Using Discount methods
+discount1.apply_discount()  # Apply discount
+discount1.set_description("Updated 10% off")  # Update description
+print(f"discount1: {discount1}")  # Print discount1 details
+
+discount2.remove_discount()  # Remove discount
+print(f"discount2: {discount2}")  # Print discount2 details
+
+discount3.set_expiration_date("2025-01-01")  # Update expiration date
+print(f"discount3: {discount3}")  # Print discount3 details
