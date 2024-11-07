@@ -1,0 +1,610 @@
+class Person:
+    """Parent class representing a person with common attributes and methods."""
+
+    def __init__(self, first_name, last_name, phone_number, id_number, email, address):
+        self._first_name = first_name
+        self._last_name = last_name
+        self._phone_number = phone_number
+        self._id_number = id_number
+        self._email = email
+        self._address = address
+
+    # Getter and setter methods
+    def get_first_name(self):
+        return self._first_name
+
+    def set_first_name(self, first_name):
+        self._first_name = first_name
+
+    def get_last_name(self):
+        return self._last_name
+
+    def set_last_name(self, last_name):
+        self._last_name = last_name
+
+    def get_phone_number(self):
+        return self._phone_number
+
+    def set_phone_number(self, phone_number):
+        self._phone_number = phone_number
+
+    def get_id_number(self):
+        return self._id_number
+
+    def set_id_number(self, id_number):
+        self._id_number = id_number
+
+    def get_email(self):
+        return self._email
+
+    def set_email(self, email):
+        self._email = email
+
+    def get_address(self):
+        return self._address
+
+    def set_address(self, address):
+        self._address = address
+
+    def create_user(self):
+        """Creates a user."""
+        print(f"User {self._first_name} {self._last_name} created.")
+
+    def delete_user(self):
+        """Deletes a user."""
+        print(f"User {self._first_name} {self._last_name} deleted.")
+
+    def __str__(self):
+        return (f"Person [First Name: {self._first_name}, Last Name: {self._last_name}, "
+                f"Phone: {self._phone_number}, ID: {self._id_number}, "
+                f"Email: {self._email}, Address: {self._address}]")
+
+
+class Customer(Person):
+    """Subclass representing a customer, inheriting from Person."""
+
+    def __init__(self, first_name, last_name, phone_number, id_number, email, address,
+                 loyalty_member, loyalty_id, member_id, username, password):
+        super().__init__(first_name, last_name, phone_number, id_number, email, address)
+        self.__loyalty_member = loyalty_member
+        self.__loyalty_id = loyalty_id
+        self.__member_id = member_id
+        self.__username = username
+        self.__password = password
+
+    # Relationship: Inheritance
+    # Customer inherits all attributes and methods from Person.
+
+    # Getter and setter methods
+    def get_loyalty_member(self):
+        return self.__loyalty_member
+
+    def set_loyalty_member(self, loyalty_member):
+        self.__loyalty_member = loyalty_member
+
+    def get_loyalty_id(self):
+        return self.__loyalty_id
+
+    def set_loyalty_id(self, loyalty_id):
+        self.__loyalty_id = loyalty_id
+
+    def get_member_id(self):
+        return self.__member_id
+
+    def set_member_id(self, member_id):
+        self.__member_id = member_id
+
+    def get_username(self):
+        return self.__username
+
+    def set_username(self, username):
+        self.__username = username
+
+    def get_password(self):
+        return self.__password
+
+    def set_password(self, password):
+        self.__password = password
+
+    def update_customer_info(self):
+        """Updates customer information."""
+        print(f"Customer information for {self._first_name} updated.")
+
+    def __str__(self):
+        return (super().__str__() +
+                f", Customer [Loyalty Member: {self.__loyalty_member}, Loyalty ID: {self.__loyalty_id}, "
+                f"Member ID: {self.__member_id}, Username: {self.__username}]")
+
+
+class EBookAuthor(Person):
+    """Subclass representing an eBook author, inheriting from Person."""
+
+    def __init__(self, first_name, last_name, phone_number, id_number, email, address,
+                 name, bio, website, written_books_list):
+        super().__init__(first_name, last_name, phone_number, id_number, email, address)
+        self.__name = name
+        self.__bio = bio
+        self.__website = website
+        self.__written_books_list = written_books_list
+
+    # Relationship: Inheritance
+    # EBookAuthor inherits all attributes and methods from Person.
+
+    # Getter and setter methods
+    def get_name(self):
+        return self.__name
+
+    def set_name(self, name):
+        self.__name = name
+
+    def get_bio(self):
+        return self.__bio
+
+    def set_bio(self, bio):
+        self.__bio = bio
+
+    def get_website(self):
+        return self.__website
+
+    def set_website(self, website):
+        self.__website = website
+
+    def get_written_books(self):
+        return self.__written_books_list
+
+    def set_books_written(self, written_books):
+        self.__written_books_list = written_books
+
+    def update_ebook_collection(self):
+        """Updates the author's eBook collection."""
+        print(f"eBook collection for author {self.__name} updated.")
+
+    def __str__(self):
+        return (super().__str__() +
+                f", EBookAuthor [Name: {self.__name}, Bio: {self.__bio}, Website: {self.__website}, "
+                f"Written Books: {', '.join(self.__written_books_list)}]")
+
+
+class ShoppingCart:
+    """Class representing a shopping cart."""
+
+    def __init__(self, cart_id, items, total_items, subtotal, customer_id, last_updated):
+        self.__cart_id = cart_id
+        self.__items = items
+        self.__total_items = total_items
+        self.__subtotal = subtotal
+        self.__customer_id = customer_id
+        self.__last_updated = last_updated
+
+    # Relationship: Binary
+    # One customer has one shopping cart, and one shopping cart has one customer.
+
+    # Getter and setter methods
+    def get_cart_id(self):
+        return self.__cart_id
+
+    def set_cart_id(self, cart_id):
+        self.__cart_id = cart_id
+
+    def get_items(self):
+        return self.__items
+
+    def set_items(self, items):
+        self.__items = items
+
+    def get_total_items(self):
+        return self.__total_items
+
+    def set_total_items(self, total_items):
+        self.__total_items = total_items
+
+    def get_subtotal(self):
+        return self.__subtotal
+
+    def set_subtotal(self, subtotal):
+        self.__subtotal = subtotal
+
+    def get_customer_id(self):
+        return self.__customer_id
+
+    def set_customer_id(self, customer_id):
+        self.__customer_id = customer_id
+
+    def get_last_updated(self):
+        return self.__last_updated
+
+    def set_last_updated(self, last_updated):
+        self.__last_updated = last_updated
+
+    def add_item(self, item_name):
+        """Adds an item to the shopping cart."""
+        print(f"Item {item_name} added to cart.")
+
+    def remove_item(self, item_name):
+        """Removes an item from the shopping cart."""
+        print(f"Item {item_name} removed from cart.")
+
+    def __str__(self):
+        return (f"ShoppingCart [Cart ID: {self.__cart_id}, Items: {self.__items}, "
+                f"Total Items: {self.__total_items}, Subtotal: {self.__subtotal}, "
+                f"Customer ID: {self.__customer_id}, Last Updated: {self.__last_updated}]")
+
+
+class Invoice:
+    """Class representing an invoice."""
+
+    def __init__(self, invoice_number, order_id, invoice_date, itemized_details, total_amount, final_amount):
+        self.__invoice_number = invoice_number
+        self.__order_id = order_id
+        self.__invoice_date = invoice_date
+        self.__itemized_details = itemized_details
+        self.__total_amount = total_amount
+        self.__final_amount = final_amount
+
+    # Relationship: Unary
+    # Changes in Order class are reflected in Invoice through order_id.
+
+    # Getter and setter methods
+    def get_invoice_number(self):
+        return self.__invoice_number
+
+    def set_invoice_number(self, invoice_number):
+        self.__invoice_number = invoice_number
+
+    def get_order_id(self):
+        return self.__order_id
+
+    def set_order_id(self, order_id):
+        self.__order_id = order_id
+
+    def get_invoice_date(self):
+        return self.__invoice_date
+
+    def set_invoice_date(self, invoice_date):
+        self.__invoice_date = invoice_date
+
+    def get_itemized_details(self):
+        return self.__itemized_details
+
+    def set_itemized_details(self, itemized_details):
+        self.__itemized_details = itemized_details
+
+    def get_total_amount(self):
+        return self.__total_amount
+
+    def set_total_amount(self, total_amount):
+        self.__total_amount = total_amount
+
+    def get_final_amount(self):
+        return self.__final_amount
+
+    def set_final_amount(self, final_amount):
+        self.__final_amount = final_amount
+
+    def report_invoice(self):
+        """Reports the invoice details."""
+        print(f"Invoice {self.__invoice_number} reported.")
+
+    def calculate_total_amount(self):
+        """Calculates the total amount for the invoice."""
+        print(f"Calculating total amount for invoice {self.__invoice_number}.")
+
+    def __str__(self):
+        return (f"Invoice [Invoice Number: {self.__invoice_number}, Order ID: {self.__order_id}, "
+                f"Invoice Date: {self.__invoice_date}, Itemized Details: {self.__itemized_details}, "
+                f"Total Amount: {self.__total_amount}, Final Amount: {self.__final_amount}]")
+
+
+class Order:
+    """Class representing an order."""
+
+    def __init__(self, order_id, order_date, customer_id, EBook_list, total_amount, status, discount_list, price_list):
+        self.__order_id = order_id
+        self.__order_date = order_date
+        self.__customer_id = customer_id
+        self.__EBook_list = EBook_list  # Aggregation
+        self.__total_amount = total_amount
+        self.__status = status
+        self.__discount_list = discount_list  # Composition
+        self.__price_list = price_list  # Composition
+
+    # Relationship: Aggregation
+    # Order aggregates EBooks. EBooks can exist independently of an Order.
+
+    # Relationship: Composition
+    # Discounts and Prices are part of the Order and cannot exist independently.
+
+    # Getter and setter methods
+    def get_order_id(self):
+        return self.__order_id
+
+    def set_order_id(self, order_id):
+        self.__order_id = order_id
+
+    def get_order_date(self):
+        return self.__order_date
+
+    def set_order_date(self, order_date):
+        self.__order_date = order_date
+
+    def get_customer_id(self):
+        return self.__customer_id
+
+    def set_customer_id(self, customer_id):
+        self.__customer_id = customer_id
+
+    def get_EBook_list(self):
+        return self.__EBook_list
+
+    def set_EBook_list(self, EBook_list):
+        self.__EBook_list = EBook_list
+
+    def get_total_amount(self):
+        return self.__total_amount
+
+    def set_total_amount(self, total_amount):
+        self.__total_amount = total_amount
+
+    def get_status(self):
+        return self.__status
+
+    def set_status(self, status):
+        self.__status = status
+
+    def create_order(self):
+        """Creates an order."""
+        print(f"Order {self.__order_id} created.")
+
+    def cancel_order(self):
+        """Cancels the order."""
+        print(f"Order {self.__order_id} canceled.")
+
+    def __str__(self):
+        return (f"Order [Order ID: {self.__order_id}, Order Date: {self.__order_date}, "
+                f"Customer ID: {self.__customer_id}, EBooks: {', '.join(self.__EBook_list)}, "
+                f"Total Amount: {self.__total_amount}, Status: {self.__status}, "
+                f"Discounts: {self.__discount_list}, Prices: {self.__price_list}]")
+
+
+class EBook:
+    """Class representing an eBook."""
+
+    def __init__(self, title, author, publish_date, genre, price, isbn):
+        self.__title = title
+        self.__author = author
+        self.__publish_date = publish_date
+        self.__genre = genre
+        self.__price = price
+        self.__isbn = isbn
+
+    # Getter and setter methods
+    def get_title(self):
+        return self.__title
+
+    def set_title(self, title):
+        self.__title = title
+
+    def get_author(self):
+        return self.__author
+
+    def set_author(self, author):
+        self.__author = author
+
+    def get_publish_date(self):
+        return self.__publish_date
+
+    def set_publish_date(self, publish_date):
+        self.__publish_date = publish_date
+
+    def get_genre(self):
+        return self.__genre
+
+    def set_genre(self, genre):
+        self.__genre = genre
+
+    def get_price(self):
+        return self.__price
+
+    def set_price(self, price):
+        self.__price = price
+
+    def get_isbn(self):
+        return self.__isbn
+
+    def set_isbn(self, isbn):
+        self.__isbn = isbn
+
+    def add_ebook(self):
+        """Adds the eBook to the system."""
+        print(f"eBook {self.__title} added.")
+
+    def remove_ebook(self):
+        """Removes the eBook from the system."""
+        print(f"eBook {self.__title} removed.")
+
+    def __str__(self):
+        return (f"EBook [Title: {self.__title}, Author: {self.__author}, Publish Date: {self.__publish_date}, "
+                f"Genre: {self.__genre}, Price: {self.__price}, ISBN: {self.__isbn}]")
+
+
+class EBookStore:
+    """Class representing an eBook store."""
+
+    def __init__(self, store_name, location, contact_number, email, EBook_list, total_sales):
+        self.__store_name = store_name
+        self.__location = location
+        self.__contact_number = contact_number
+        self.__email = email
+        self.__EBook_list = EBook_list  # Composition
+        self.__total_sales = total_sales
+
+    # Relationship: Composition
+    # EBooks are part of the store and cannot exist without it.
+
+    # Getter and setter methods
+    def get_store_name(self):
+        return self.__store_name
+
+    def set_store_name(self, store_name):
+        self.__store_name = store_name
+
+    def get_location(self):
+        return self.__location
+
+    def set_location(self, location):
+        self.__location = location
+
+    def get_contact_number(self):
+        return self.__contact_number
+
+    def set_contact_number(self, contact_number):
+        self.__contact_number = contact_number
+
+    def get_email(self):
+        return self.__email
+
+    def set_email(self, email):
+        self.__email = email
+
+    def get_total_sales(self):
+        return self.__total_sales
+
+    def set_total_sales(self, total_sales):
+        self.__total_sales = total_sales
+
+    def recommend_ebooks(self):
+        """Recommends eBooks."""
+        print(f"Recommending eBooks from {self.__store_name}.")
+
+    def adjust_language(self):
+        """Adjusts language settings."""
+        print("Adjusting language settings.")
+
+    def __str__(self):
+        return (f"EBookStore [Store Name: {self.__store_name}, Location: {self.__location}, "
+                f"Contact Number: {self.__contact_number}, Email: {self.__email}, "
+                f"EBooks: {', '.join(self.__EBook_list)}, Total Sales: {self.__total_sales}]")
+
+
+class Price:
+    """Class representing pricing details."""
+
+    def __init__(self, base_price, discount_amount, vat_rate, final_price, currency, pricing_date):
+        self.__base_price = base_price
+        self.__discount_amount = discount_amount
+        self.__vat_rate = vat_rate
+        self.__final_price = final_price
+        self.__currency = currency
+        self.__pricing_date = pricing_date
+
+    # Getter and setter methods
+    def get_base_price(self):
+        return self.__base_price
+
+    def set_base_price(self, base_price):
+        self.__base_price = base_price
+
+    def get_discount_amount(self):
+        return self.__discount_amount
+
+    def set_discount_amount(self, discount_amount):
+        self.__discount_amount = discount_amount
+
+    def get_vat_rate(self):
+        return self.__vat_rate
+
+    def set_vat_rate(self, vat_rate):
+        self.__vat_rate = vat_rate
+
+    def get_final_price(self):
+        return self.__final_price
+
+    def set_final_price(self, final_price):
+        self.__final_price = final_price
+
+    def get_currency(self):
+        return self.__currency
+
+    def set_currency(self, currency):
+        self.__currency = currency
+
+    def get_pricing_date(self):
+        return self.__pricing_date
+
+    def set_pricing_date(self, pricing_date):
+        self.__pricing_date = pricing_date
+
+    def calculate_base_price(self):
+        """Calculates the base price."""
+        print(f"Calculating base price: {self.__base_price}")
+
+    def update_final_price(self):
+        """Updates the final price."""
+        print(f"Updating final price: {self.__final_price}")
+
+    def __str__(self):
+        return (f"Price [Base Price: {self.__base_price}, Discount Amount: {self.__discount_amount}, "
+                f"VAT Rate: {self.__vat_rate}, Final Price: {self.__final_price}, "
+                f"Currency: {self.__currency}, Pricing Date: {self.__pricing_date}]")
+
+
+class Discount:
+    """Class representing a discount."""
+
+    def __init__(self, discount_id, loyalty_discount, bulk_discount, description, min_items_for_bulk, expiration_date):
+        self.__discount_id = discount_id
+        self.__loyalty_discount = loyalty_discount
+        self.__bulk_discount = bulk_discount
+        self.__description = description
+        self.__min_items_for_bulk = min_items_for_bulk
+        self.__expiration_date = expiration_date
+
+    # Getter and setter methods
+    def get_discount_id(self):
+        return self.__discount_id
+
+    def set_discount_id(self, discount_id):
+        self.__discount_id = discount_id
+
+    def get_loyalty_discount(self):
+        return self.__loyalty_discount
+
+    def set_loyalty_discount(self, loyalty_discount):
+        self.__loyalty_discount = loyalty_discount
+
+    def get_bulk_discount(self):
+        return self.__bulk_discount
+
+    def set_bulk_discount(self, bulk_discount):
+        self.__bulk_discount = bulk_discount
+
+    def get_description(self):
+        return self.__description
+
+    def set_description(self, description):
+        self.__description = description
+
+    def get_min_items_for_bulk(self):
+        return self.__min_items_for_bulk
+
+    def set_min_items_for_bulk(self, min_items_for_bulk):
+        self.__min_items_for_bulk = min_items_for_bulk
+
+    def get_expiration_date(self):
+        return self.__expiration_date
+
+    def set_expiration_date(self, expiration_date):
+        self.__expiration_date = expiration_date
+
+    def apply_discount(self):
+        """Applies the discount."""
+        print(f"Applying discount {self.__discount_id}.")
+
+    def remove_discount(self):
+        """Removes the discount."""
+        print(f"Removing discount {self.__discount_id}.")
+
+    def __str__(self):
+        return (f"Discount [Discount ID: {self.__discount_id}, Loyalty Discount: {self.__loyalty_discount}, "
+                f"Bulk Discount: {self.__bulk_discount}, Description: {self.__description}, "
+                f"Min Items for Bulk: {self.__min_items_for_bulk}, Expiration Date: {self.__expiration_date}]")
